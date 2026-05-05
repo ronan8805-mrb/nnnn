@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "station_name": "Pearse Street",
+        "content": "Community safety meeting scheduled for next Tuesday at 7pm. All welcome!",
+        "timestamp": "2 hours ago",
+        "likes": 12,
+        "is_official": true
+    },
+    {
+        "id": "2",
+        "station_name": "Pearse Street",
+        "content": "Reminder: Please lock your vehicles and remove valuables. Recent reports of car break-ins in the area.",
+        "timestamp": "5 hours ago",
+        "likes": 24,
+        "is_official": true
+    },
+    {
+        "id": "3",
+        "station_name": "Pearse Street",
+        "content": "Well done to our local community watch group for their vigilance this week. Keep up the great work!",
+        "timestamp": "1 day ago",
+        "likes": 46,
+        "is_official": true
+    },
+    {
+        "id": "4",
+        "station_name": "Pearse Street",
+        "content": "Test post from verification",
+        "timestamp": "Just now",
+        "likes": 0,
+        "is_official": true
+    }
+]

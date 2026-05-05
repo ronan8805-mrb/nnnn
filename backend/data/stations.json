@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Pearse Street Garda Station",
+    "latitude": 53.3449,
+    "longitude": -6.2595,
+    "address": "1-6 Pearse Street, Dublin 2"
+  },
+  {
+    "name": "Store Street Garda Station",
+    "latitude": 53.3501,
+    "longitude": -6.2526,
+    "address": "4-6 Store Street, Dublin 1"
+  },
+  {
+    "name": "Kevin Street Garda Station",
+    "latitude": 53.3371,
+    "longitude": -6.2674,
+    "address": "41-45 Kevin Street Upper, Dublin 8"
+  }
+]

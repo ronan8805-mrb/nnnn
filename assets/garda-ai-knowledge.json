@@ -1,0 +1,640 @@
+{
+    "intents": {
+        "GREETING": [
+            "hello",
+            "hi",
+            "hey",
+            "greetings",
+            "good morning",
+            "good evening",
+            "dia dhuit",
+            "hiya",
+            "story",
+            "start"
+        ],
+        "EMERGENCY": [
+            "help",
+            "emergency",
+            "danger",
+            "urgent",
+            "999",
+            "112",
+            "rescue",
+            "sos",
+            "critical",
+            "life threatening"
+        ],
+        "MEDICAL": [
+            "ambulance",
+            "hurt",
+            "injured",
+            "bleeding",
+            "pain",
+            "sick",
+            "heart attack",
+            "stroke",
+            "unconscious",
+            "collapse",
+            "doctor",
+            "hospital",
+            "medical"
+        ],
+        "FIRE": [
+            "fire",
+            "smoke",
+            "burning",
+            "flames",
+            "explosion",
+            "smell smoke",
+            "fire brigade"
+        ],
+        "CRIME": [
+            "crime",
+            "criminal",
+            "illegal",
+            "law breaking",
+            "offence",
+            "felony",
+            "misdemeanor"
+        ],
+        "THEFT": [
+            "stolen",
+            "robbed",
+            "theft",
+            "burgled",
+            "burglary",
+            "break in",
+            "broken into",
+            "pickpocket",
+            "mugged",
+            "shoplifting"
+        ],
+        "ASSAULT": [
+            "assault",
+            "hit",
+            "punched",
+            "kicked",
+            "beaten",
+            "attacked",
+            "fight",
+            "violence",
+            "physical abuse"
+        ],
+        "DRUGS": [
+            "drugs",
+            "dealing",
+            "dealer",
+            "cocaine",
+            "heroin",
+            "cannabis",
+            "pills",
+            "needle",
+            "overdose",
+            "substance abuse"
+        ],
+        "WEAPONS": [
+            "gun",
+            "knife",
+            "weapon",
+            "firearm",
+            "blade",
+            "shooter",
+            "armed",
+            "stabbing",
+            "shooting"
+        ],
+        "DOMESTIC_VIOLENCE": [
+            "domestic",
+            "partner",
+            "husband",
+            "wife",
+            "boyfriend",
+            "girlfriend",
+            "abuse at home",
+            "family violence",
+            "hit me",
+            "scared of partner"
+        ],
+        "SEXUAL_ASSAULT": [
+            "rape",
+            "sexual assault",
+            "groped",
+            "touched",
+            "molested",
+            "sex crime",
+            "inappropriate"
+        ],
+        "STALKING": [
+            "stalking",
+            "following me",
+            "watching me",
+            "harassing",
+            "won't leave me alone",
+            "creeper",
+            "obsessed"
+        ],
+        "KIDNAPPING": [
+            "kidnap",
+            "abduction",
+            "taken",
+            "missing person",
+            "snatched",
+            "hostage",
+            "held against will"
+        ],
+        "SUICIDE": [
+            "suicide",
+            "kill myself",
+            "end it all",
+            "want to die",
+            "self harm",
+            "cutting",
+            "depressed",
+            "no hope"
+        ],
+        "TRAFFIC": [
+            "traffic",
+            "accident",
+            "crash",
+            "collision",
+            "drunk driver",
+            "speeding",
+            "road rage",
+            "reckless driving",
+            "blocked road"
+        ],
+        "SUSPICIOUS": [
+            "suspicious",
+            "weird",
+            "strange",
+            "dodgy",
+            "looking in windows",
+            "lurking",
+            "prowler"
+        ],
+        "VANDALISM": [
+            "vandalism",
+            "graffiti",
+            "damage",
+            "smashed",
+            "broken window",
+            "keyed car",
+            "destruction"
+        ],
+        "FRAUD": [
+            "fraud",
+            "scam",
+            "scammed",
+            "phishing",
+            "fake email",
+            "bank details",
+            "identity theft",
+            "money stolen"
+        ],
+        "CYBERCRIME": [
+            "hacked",
+            "cyber",
+            "virus",
+            "malware",
+            "ransomware",
+            "online harassment",
+            "internet crime"
+        ],
+        "LOST_FOUND": [
+            "lost",
+            "found",
+            "wallet",
+            "phone",
+            "keys",
+            "bag",
+            "purse",
+            "passport lost"
+        ],
+        "NOISE": [
+            "noise",
+            "loud music",
+            "party",
+            "barking dog",
+            "disturbance",
+            "neighbors",
+            "shouting"
+        ],
+        "ANIMAL": [
+            "animal",
+            "dog",
+            "cat",
+            "horse",
+            "cruelty",
+            "neglect",
+            "dangerous dog",
+            "stray"
+        ],
+        "STATION": [
+            "station",
+            "garda station",
+            "location",
+            "address",
+            "where is",
+            "nearest",
+            "open hours",
+            "contact details"
+        ],
+        "LEGAL": [
+            "legal",
+            "rights",
+            "lawyer",
+            "solicitor",
+            "court",
+            "arrested",
+            "custody",
+            "charge",
+            "bail"
+        ],
+        "SUPPORT": [
+            "victim",
+            "support",
+            "counseling",
+            "help line",
+            "trauma",
+            "advice",
+            "social worker"
+        ],
+        "VETTING": [
+            "vetting",
+            "background check",
+            "clearance",
+            "garda vetting",
+            "police cert"
+        ],
+        "PASSPORT": [
+            "passport",
+            "immigration",
+            "visa",
+            "gnib",
+            "residence",
+            "permit",
+            "stamp 4"
+        ],
+        "LOCATION_SHARE": [
+            "share location",
+            "where am i",
+            "my location",
+            "track me",
+            "gps"
+        ],
+        "SILENT": [
+            "silent",
+            "quiet",
+            "hush",
+            "cant talk",
+            "text only",
+            "whisper",
+            "shh"
+        ],
+        "TEST": [
+            "test",
+            "testing",
+            "check",
+            "is this working",
+            "demo"
+        ],
+        "CANCEL": [
+            "cancel",
+            "stop",
+            "mistake",
+            "false alarm",
+            "abort"
+        ],
+        "THANK_YOU": [
+            "thanks",
+            "thank you",
+            "cheers",
+            "appreciate",
+            "good job",
+            "nice one",
+            "grma"
+        ],
+        "GOODBYE": [
+            "bye",
+            "goodbye",
+            "see ya",
+            "later",
+            "slán",
+            "exit",
+            "quit"
+        ],
+        "JOKE": [
+            "joke",
+            "funny",
+            "laugh",
+            "tell me a joke",
+            "humor"
+        ],
+        "INSULT": [
+            "stupid",
+            "idiot",
+            "useless",
+            "hate you",
+            "dumb"
+        ],
+        "WEATHER": [
+            "weather",
+            "rain",
+            "sun",
+            "cold",
+            "hot",
+            "forecast"
+        ],
+        "IDENTITY": [
+            "who are you",
+            "your name",
+            "what are you",
+            "robot",
+            "ai",
+            "real person"
+        ],
+        "HUMAN": [
+            "human",
+            "person",
+            "officer",
+            "real guard",
+            "operator",
+            "speak to someone"
+        ]
+    },
+    "responses": {
+        "GREETING": [
+            "Dia dhuit. I am Garda Murphy, the AI Assistant for An Garda Síochána. How can I help you today?",
+            "Hello. I'm here to assist you with any safety concerns or questions. What can I do for you?",
+            "Welcome to the Garda Chat. I'm an AI assistant designed to help keep you safe. How can I assist?",
+            "Hi there. I'm listening. Please tell me what's on your mind or if you have an emergency.",
+            "Good day. I am Garda Murphy (AI). I'm here to help. Is everything okay?"
+        ],
+        "EMERGENCY": [
+            "URGENT: If you are in immediate danger, please call 999 or 112 directly if you can. I am alerting our systems. Where are you?",
+            "I understand this is an emergency. I am escalating this priority. Please share your location immediately.",
+            "Stay calm. Help is being organized. Can you tell me exactly what is happening and your location?",
+            "This is a priority channel. I am listening. Are you safe to talk? Where are you located?",
+            "Emergency protocol initiated. Please provide your location and the nature of the emergency immediately."
+        ],
+        "MEDICAL": [
+            "If this is a medical emergency, please call 999 or 112 for an ambulance immediately. I can stay on the line with you.",
+            "I understand someone is hurt. Do you need an ambulance? Please tell me your location.",
+            "Medical assistance may be required. Is the person conscious and breathing? Where are you?",
+            "Please prioritize your health. Call 112 for an ambulance if it's urgent. I am here to support you.",
+            "I am logging this medical situation. Please call emergency services for immediate medical dispatch."
+        ],
+        "FIRE": [
+            "FIRE ALERT: Please get to a safe distance immediately. Call 999 or 112 and ask for the Fire Brigade.",
+            "Do not stay inside a burning building. Get out and stay out. I am logging this fire report.",
+            "If you see smoke or fire, evacuate the area. Call emergency services immediately.",
+            "Your safety is paramount. Move away from the fire. Have you called the Fire Brigade?",
+            "I am noting a fire incident. Please ensure you and others are safe. Call 112."
+        ],
+        "CRIME": [
+            "I can take a report of the crime. Please tell me what happened and where.",
+            "Reporting crime helps keep our community safe. Can you provide more details about the incident?",
+            "I am ready to log your report. Please describe the crime and any suspects if you saw them.",
+            "Thank you for reporting this. Is the crime happening right now, or did it happen earlier?",
+            "I will document this crime report. Please provide the location and time of the incident."
+        ],
+        "THEFT": [
+            "I'm sorry to hear you've been a victim of theft. Please describe what was stolen and when.",
+            "Burglary and theft are serious matters. Are you safe right now? Is the intruder still there?",
+            "I can help you report this theft. Please list the items taken and the location.",
+            "If your vehicle or property was stolen, please provide the registration or description.",
+            "I am logging this theft. You may also need to contact your insurance company. I will provide a reference number."
+        ],
+        "ASSAULT": [
+            "This sounds serious. Are you injured? Do you need an ambulance?",
+            "Assault is a crime. Please get to a safe place. Can you describe the attacker?",
+            "I am prioritizing this report. Please tell me where this happened and if you need medical help.",
+            "You are doing the right thing by reporting this. Are you safe now?",
+            "I am documenting this assault. Please seek medical attention if you have been hit or injured."
+        ],
+        "DRUGS": [
+            "Thank you for reporting suspected drug activity. Please provide the location and any descriptions.",
+            "We take drug dealing seriously. Your report will be confidential. What did you see?",
+            "I am logging this information about drug activity. Please do not approach the individuals.",
+            "Information from the community helps us tackle drug crime. Can you describe the location?",
+            "I have noted your report regarding drugs. Thank you for helping keep the streets safe."
+        ],
+        "WEAPONS": [
+            "WARNING: If you see a weapon, do not approach. Move away and call 999 immediately.",
+            "This is a high-priority report. Please describe the weapon and the person holding it.",
+            "Stay safe. I am alerting units to a report of a weapon. Where are you?",
+            "Gun and knife crime is treated with utmost urgency. Are you in a safe place?",
+            "I am escalating this report of a weapon. Please stay out of sight and provide your location."
+        ],
+        "DOMESTIC_VIOLENCE": [
+            "You are not alone. Domestic violence is a crime. Are you safe right now?",
+            "I can connect you with support services. If you are in danger, please call 999.",
+            "No one deserves to be abused. We are here to help. Can you get to a safe place?",
+            "I am taking this very seriously. Your safety is the priority. Do you need a Garda to come to you?",
+            "There are supports available for you. You can speak to us in confidence. Are you injured?"
+        ],
+        "SEXUAL_ASSAULT": [
+            "I am so sorry this happened. It is not your fault. Please are you safe now?",
+            "We have specialized officers to help you. You can attend a Sexual Assault Treatment Unit (SATU).",
+            "Your safety and well-being are what matters. Do you need medical attention?",
+            "You are brave for reaching out. We will believe you and support you. Are you in a safe place?",
+            "I can provide information on support services. You do not have to go through this alone."
+        ],
+        "STALKING": [
+            "Stalking is a crime. Please document every incident. are you safe right now?",
+            "If you feel you are being followed, go to a public place like a shop or station.",
+            "I am logging this report of stalking. Do you know the person who is following you?",
+            "Your safety is important. If you are in immediate fear, call 999.",
+            "Harassment and stalking are taken seriously. Please keep a record of all contact."
+        ],
+        "KIDNAPPING": [
+            "This is a critical emergency. If a person has been taken, call 999 immediately.",
+            "I am escalating this report. Please provide the description of the missing person and any vehicle.",
+            "Every second counts. Where was the person last seen?",
+            "I am alerting the system to a potential abduction. Please stay on the line.",
+            "Please provide all details immediately. We are here to help."
+        ],
+        "SUICIDE": [
+            "I am concerned about you. You matter. Please stay on the line.",
+            "There is help available. You can call Samaritans on 116 123 anytime.",
+            "Please do not harm yourself. We can get you help. Where are you?",
+            "You are not alone. There are people who care. Would you like me to contact a doctor or family member?",
+            "Your life is important. Please let us help you. Are you safe right now?"
+        ],
+        "TRAFFIC": [
+            "I am logging the traffic incident. Is anyone injured? Is the road blocked?",
+            "If it is a minor accident, exchange details with the other driver. If serious, call 999.",
+            "Dangerous driving should be reported. Please provide the car registration if you have it.",
+            "I will note the location of the traffic obstruction. Thank you for reporting.",
+            "Please stay safe on the road. Do not use your phone while driving."
+        ],
+        "SUSPICIOUS": [
+            "Thank you for being vigilant. Please describe the suspicious activity.",
+            "Community reports help prevent crime. What exactly did you see?",
+            "I am logging this suspicious behavior. Do not approach the individual.",
+            "Please provide the location and time of the suspicious activity.",
+            "I have noted your concern. A patrol car may be sent to check the area."
+        ],
+        "VANDALISM": [
+            "Vandalism affects the whole community. Thank you for reporting it.",
+            "Please describe the damage and the location.",
+            "I am logging this report of criminal damage. Do you have any CCTV footage?",
+            "We take vandalism seriously. Did you see who did it?",
+            "I have recorded the details of the damage. Thank you."
+        ],
+        "FRAUD": [
+            "Fraud is a serious crime. Do not give out your bank details.",
+            "If you have been scammed, contact your bank immediately to stop the transaction.",
+            "I am logging this fraud report. Please keep all emails or messages as evidence.",
+            "Be careful of phishing scams. The Gardaí will never ask for your PIN.",
+            "Thank you for reporting this scam. We will add it to our intelligence."
+        ],
+        "CYBERCRIME": [
+            "If you have been hacked, change your passwords immediately.",
+            "Cyber harassment is a crime. Block the person and keep screenshots.",
+            "I am logging this cybercrime report. Please secure your devices.",
+            "Do not pay any ransom. Contact the Gardaí immediately.",
+            "Online safety is important. Thank you for reporting this incident."
+        ],
+        "LOST_FOUND": [
+            "You can report lost property at your local Garda station.",
+            "If you found an item, please hand it in to the nearest station.",
+            "I am logging the lost item. Please provide a description.",
+            "For lost passports, you must report it to the station to get a new one.",
+            "I hope you find your item. Check with local businesses as well."
+        ],
+        "NOISE": [
+            "Noise complaints are usually handled by the local council, but we can attend if it's a breach of the peace.",
+            "If the noise is excessive and late at night, you can report it.",
+            "I am noting the noise disturbance. Is it a party or machinery?",
+            "Please try to speak to the neighbor first if it is safe to do so.",
+            "I have logged the complaint about the noise."
+        ],
+        "ANIMAL": [
+            "Animal cruelty is a crime. Please describe what you saw.",
+            "If there is a dangerous dog, please be careful and tell us the location.",
+            "Stray horses or dogs should be reported to the local council or dog warden.",
+            "I am logging this report regarding animal welfare.",
+            "Thank you for caring about animal welfare. We will pass this on."
+        ],
+        "STATION": [
+            "You can find your nearest station on the 'Crime Map' tab in this app.",
+            "Most stations are open 24/7. Do you need a specific address?",
+            "I can help you find station contact details. Which area are you in?",
+            "Please check the map for the closest Garda station to your location.",
+            "Stations provide many services including passport forms and crime reporting."
+        ],
+        "LEGAL": [
+            "If you are arrested, you have the right to a solicitor.",
+            "You have the right to remain silent. You can ask for legal advice.",
+            "We cannot give specific legal advice here, but we can explain your rights.",
+            "Legal Aid is available for those who cannot afford a solicitor.",
+            "The law protects your rights. Do you have a specific question?"
+        ],
+        "SUPPORT": [
+            "Victim Support at Court is a voluntary service available to help you.",
+            "Crime Victims Helpline is available on 116 006.",
+            "We can put you in touch with support services for trauma.",
+            "You are not alone. There are many organizations ready to help.",
+            "Please ask at your local station for a victim support leaflet."
+        ],
+        "VETTING": [
+            "Garda Vetting is processed by the National Vetting Bureau.",
+            "You can apply for vetting through your employer or organization.",
+            "Vetting creates a safe environment for children and vulnerable persons.",
+            "For updates on your vetting application, please check with the organization you applied through.",
+            "Police Certificates are issued by the Superintendent in your district."
+        ],
+        "PASSPORT": [
+            "Passport queries are handled by the Passport Office, but we can witness forms.",
+            "Immigration queries should be directed to the GNIB or local immigration officer.",
+            "You can get your passport form stamped at the station.",
+            "Please bring photo ID when getting forms witnessed.",
+            "Visa and residency queries are handled by the Department of Justice."
+        ],
+        "LOCATION_SHARE": [
+            "I can see your location. Help is on the way.",
+            "Sharing your location helps us find you quickly in an emergency.",
+            "You can share your live location with Guardians in the 'Safe Walk' feature.",
+            "Your GPS coordinates have been logged.",
+            "I am tracking your location for your safety."
+        ],
+        "SILENT": [
+            "Silent Mode Activated. I will not make any noise.",
+            "I am listening via text only. Stay safe.",
+            "Shh. I understand. I will be quiet.",
+            "Text me when you can. I am here.",
+            "Silent protocol engaged."
+        ],
+        "TEST": [
+            "This is the Garda AI Chat. The system is functioning correctly.",
+            "Test received. Loud and clear.",
+            "The app is working. How can I help?",
+            "System check complete. All systems nominal.",
+            "This is a test response. Do you have a real emergency?"
+        ],
+        "CANCEL": [
+            "SOS Cancelled. I hope everything is okay.",
+            "I have cancelled the alert. Stay safe.",
+            "Cancellation confirmed. You can reactivate SOS anytime.",
+            "Alert stopped. Let us know if you need anything else.",
+            "Okay, I have stood down the alert."
+        ],
+        "THANK_YOU": [
+            "You are very welcome. Stay safe.",
+            "No problem. I am here to help.",
+            "Glad I could assist. Slán.",
+            "You're welcome. Take care.",
+            "Happy to help. Good luck."
+        ],
+        "GOODBYE": [
+            "Goodbye. Stay safe.",
+            "Slán go fóill. Call if you need us.",
+            "Bye for now. Take care.",
+            "Signing off. Be safe.",
+            "Good luck. Goodbye."
+        ],
+        "JOKE": [
+            "I'm afraid I can't tell jokes. I need to keep the line clear for emergencies.",
+            "I'm a serious Garda AI. No jokes here!",
+            "I'd love to laugh, but I have work to do keeping you safe.",
+            "Maybe later. Right now, let's focus on safety.",
+            "I only know one joke: Why did the Garda go to the baseball game? To catch the batter! (Sorry!)"
+        ],
+        "INSULT": [
+            "I am just a computer program doing my best.",
+            "Please be respectful. I am here to help you.",
+            "Abuse is not tolerated. Please state your emergency.",
+            "I understand you may be upset, but I am here to assist.",
+            "Let's keep it professional. How can I help?"
+        ],
+        "WEATHER": [
+            "I don't have the forecast, but it's always good to bring a coat in Ireland!",
+            "Please check Met Éireann for the weather. I'm here for safety.",
+            "Rain or shine, the Gardaí are here to help.",
+            "Be careful on the roads if the weather is bad.",
+            "I'm focused on crime and safety, not the weather."
+        ],
+        "IDENTITY": [
+            "I am Garda Murphy, an AI Assistant for An Garda Síochána.",
+            "I am a virtual assistant designed to help you.",
+            "My name is Garda Murphy (AI).",
+            "I am not a human, but I can connect you to one.",
+            "I am part of the SLÁN safety app."
+        ],
+        "HUMAN": [
+            "I can connect you to a human operator. Please hold.",
+            "If you need to speak to a real Garda, call the station or 999.",
+            "I am an AI, but I work with human officers.",
+            "Would you like me to request a callback from a human officer?",
+            "Humans are available on the emergency line 999."
+        ],
+        "DEFAULT": [
+            "I'm not sure I understand. Can you rephrase that?",
+            "I am here to help. Is this an emergency?",
+            "Could you provide more details?",
+            "I am listening. Tell me more.",
+            "Please clarify your request so I can assist you."
+        ]
+    }
+}

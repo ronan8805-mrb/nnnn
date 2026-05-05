@@ -1,0 +1,7 @@
+Error Type: InternalError
+FULL ERROR MESSAGE:
+Metro has encountered an error: Importing native-only module "react-native/Libraries/Utilities/codegenNativeCommands" on web from: C:\Users\aceai\.gemini\antigravity\scratch\SLAN\node_modules\react-native-maps\lib\MapMarkerNativeComponent.js: C:\Users\aceai\.gemini\antigravity\scratch\SLAN\node_modules\@expo\cli\src\start\server\metro\withMetroMultiPlatform.ts (585:19)
+
+
+Stack Trace:
+None
