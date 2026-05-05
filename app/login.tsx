@@ -7,8 +7,8 @@ import {
     Animated,
     Platform,
     Image,
-    Modal,
     FlatList,
+    ScrollView,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { BlurView } from 'expo-blur';
@@ -36,89 +36,94 @@ export default function AuthSelectionScreen() {
     }, []);
     
     return (
-        <JarvisWrapper showRings={true} showTelemetry={true}>
-            <View style={styles.overlay}>
-                {/* Header (Language Selector on the Right) */}
-                <View style={styles.header}>
-                    <View style={{ flex: 1 }} />
-                    <TouchableOpacity style={styles.langButton} onPress={() => setShowLangMenu(true)}>
-                        <Text style={styles.langText}>[ {language.toUpperCase()} ]</Text>
-                        <Ionicons name="globe-outline" size={14} color="#00f3ff" style={{ marginLeft: 6 }} />
-                    </TouchableOpacity>
-                </View>
-
-                {/* Main Content */}
-                <View style={styles.mainContent}>
-                    
-                    {/* The Shield/Harp Logo Container */}
-                    <View style={styles.logoWrapper}>
-                        <Animated.View style={[styles.logoGlow, { 
-                            opacity: pulseAnim.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] }) 
-                        }]} />
-                        <Image 
-                            source={require('../assets/harp_logo.png')} 
-                            style={styles.harpLogo}
-                            resizeMode="contain"
-                        />
+        <JarvisWrapper showRings={true} showTelemetry={false}>
+            <ScrollView 
+                style={styles.container}
+                contentContainerStyle={styles.scrollContent}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={styles.overlay}>
+                    {/* Header (Language Selector on the Right) */}
+                    <View style={styles.header}>
+                        <View style={{ flex: 1 }} />
+                        <TouchableOpacity style={styles.langButton} onPress={() => setShowLangMenu(true)}>
+                            <Text style={styles.langText}>[ {language.toUpperCase()} ]</Text>
+                            <Ionicons name="globe-outline" size={14} color="#00f3ff" style={{ marginLeft: 6 }} />
+                        </TouchableOpacity>
                     </View>
 
-                    <Text style={styles.welcomeTitle}>{t.platformTitle}</Text>
-                    <Text style={styles.welcomeSubtitle}>{t.welcomeSubtitle}</Text>
-
-                    <BlurView intensity={Platform.OS === 'web' ? 40 : 80} tint="dark" style={styles.selectionCard}>
+                    {/* Main Content */}
+                    <View style={styles.mainContent}>
                         
-                        <View style={styles.buttonGroup}>
-                            <TouchableOpacity 
-                                style={[styles.authButton, styles.registerBtn]}
-                                onPress={() => router.push('/register')}
-                                activeOpacity={0.8}
-                            >
-                                <View style={styles.btnIconContainer}>
-                                    <Ionicons name="finger-print" size={24} color="#00f3ff" />
-                                </View>
-                                <View style={styles.btnTextContainer}>
-                                    <Text style={styles.btnTitle}>{t.register}</Text>
-                                    <Text style={styles.btnSub}>Create a new account</Text>
-                                </View>
-                                <Ionicons name="chevron-forward" size={20} color="#00f3ff" />
-                            </TouchableOpacity>
-
-                            <TouchableOpacity 
-                                style={[styles.authButton, styles.loginBtn]}
-                                onPress={() => router.push('/login-form')}
-                                activeOpacity={0.8}
-                            >
-                                <View style={styles.btnIconContainerNavy}>
-                                    <Ionicons name="scan" size={24} color="#fbbf24" />
-                                </View>
-                                <View style={styles.btnTextContainer}>
-                                    <Text style={styles.btnTitleLogin}>{t.login}</Text>
-                                    <Text style={styles.btnSub}>Access your account</Text>
-                                </View>
-                                <Ionicons name="chevron-forward" size={20} color="#fbbf24" />
-                            </TouchableOpacity>
+                        {/* The Shield/Harp Logo Container */}
+                        <View style={styles.logoWrapper}>
+                            <Animated.View style={[styles.logoGlow, { 
+                                opacity: pulseAnim.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] }) 
+                            }]} />
+                            <Image 
+                                source={require('../assets/harp_logo.png')} 
+                                style={styles.harpLogo}
+                                resizeMode="contain"
+                            />
                         </View>
 
-                        <View style={styles.divider}>
-                            <View style={styles.dividerLine} />
-                            <Text style={styles.dividerText}>{t.officialLogin}</Text>
-                            <View style={styles.dividerLine} />
-                        </View>
+                        <Text style={styles.welcomeTitle}>{t.platformTitle}</Text>
+                        <Text style={styles.welcomeSubtitle}>{t.welcomeSubtitle}</Text>
 
-                        <TouchableOpacity style={styles.gardaLink} onPress={() => router.push('/garda-login')} activeOpacity={0.6}>
-                            <Ionicons name="shield" size={16} color="#94a3b8" style={{ marginRight: 8 }} />
-                            <Text style={styles.gardaText}>{t.gardaLogin}</Text>
-                        </TouchableOpacity>
+                        <BlurView intensity={Platform.OS === 'web' ? 40 : 80} tint="dark" style={styles.selectionCard}>
+                            
+                            <View style={styles.buttonGroup}>
+                                <TouchableOpacity 
+                                    style={[styles.authButton, styles.registerBtn]}
+                                    onPress={() => router.push('/register')}
+                                    activeOpacity={0.8}
+                                >
+                                    <View style={styles.btnIconContainer}>
+                                        <Ionicons name="finger-print" size={24} color="#00f3ff" />
+                                    </View>
+                                    <View style={styles.btnTextContainer}>
+                                        <Text style={styles.btnTitle}>{t.register}</Text>
+                                        <Text style={styles.btnSub}>Create a new account</Text>
+                                    </View>
+                                    <Ionicons name="chevron-forward" size={20} color="#00f3ff" />
+                                </TouchableOpacity>
 
-                        <TouchableOpacity style={[styles.gardaLink, { marginTop: 10 }]} onPress={() => router.push('/gov-login')} activeOpacity={0.6}>
-                            <Ionicons name="globe-outline" size={16} color="#fbbf24" style={{ marginRight: 8 }} />
-                            <Text style={[styles.gardaText, { color: '#fbbf24' }]}>{t.govLogin}</Text>
-                        </TouchableOpacity>
-                    </BlurView>
+                                <TouchableOpacity 
+                                    style={[styles.authButton, styles.loginBtn]}
+                                    onPress={() => router.push('/login-form')}
+                                    activeOpacity={0.8}
+                                >
+                                    <View style={styles.btnIconContainerNavy}>
+                                        <Ionicons name="scan" size={24} color="#fbbf24" />
+                                    </View>
+                                    <View style={styles.btnTextContainer}>
+                                        <Text style={styles.btnTitleLogin}>{t.login}</Text>
+                                        <Text style={styles.btnSub}>Access your account</Text>
+                                    </View>
+                                    <Ionicons name="chevron-forward" size={20} color="#fbbf24" />
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.divider}>
+                                <View style={styles.dividerLine} />
+                                <Text style={styles.dividerText}>{t.officialLogin}</Text>
+                                <View style={styles.dividerLine} />
+                            </View>
+
+                            <TouchableOpacity style={styles.gardaLink} onPress={() => router.push('/garda-login')} activeOpacity={0.6}>
+                                <Ionicons name="shield" size={16} color="#94a3b8" style={{ marginRight: 8 }} />
+                                <Text style={styles.gardaText}>{t.gardaLogin}</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={[styles.gardaLink, { marginTop: 10 }]} onPress={() => router.push('/gov-login')} activeOpacity={0.6}>
+                                <Ionicons name="globe-outline" size={16} color="#fbbf24" style={{ marginRight: 8 }} />
+                                <Text style={[styles.gardaText, { color: '#fbbf24' }]}>{t.govLogin}</Text>
+                            </TouchableOpacity>
+                        </BlurView>
+                    </View>
+                    <View style={{ height: 60 }} />
                 </View>
-                
-                <View style={{ height: 60 }} />
-            </View>
+            </ScrollView>
 
             <LanguageSelector visible={showLangMenu} onClose={() => setShowLangMenu(false)} />
         </JarvisWrapper>
@@ -126,11 +131,17 @@ export default function AuthSelectionScreen() {
 }
 
 const styles = StyleSheet.create({
-    overlay: {
+    container: {
         flex: 1,
+    },
+    scrollContent: {
+        flexGrow: 1,
+        justifyContent: 'center',
+    },
+    overlay: {
         padding: 20,
         paddingTop: Platform.OS === 'web' ? 40 : 60,
-        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     header: {
         flexDirection: 'row',
