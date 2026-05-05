@@ -30,22 +30,7 @@ export default function LoginFormScreen() {
         // ... (removed local pulseAnim since JarvisWrapper handles bg animation)
     }, []);
 
-    const handleBiometricLogin = async () => {
-        setLoading(true);
-        try {
-            const result = await LocalAuthentication.authenticateAsync({
-                promptMessage: 'Authenticate to SLÁN',
-            });
 
-            if (result.success) {
-                router.replace('/home');
-            }
-        } catch (error) {
-            Alert.alert('Error', 'Authentication failed');
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handleNameLogin = () => {
         if (!name) {
@@ -71,20 +56,7 @@ export default function LoginFormScreen() {
                         <Text style={[styles.subtitle, isMobile && { marginBottom: 15 }]}>{t.loginSubtitle}</Text>
 
                         <View style={styles.form}>
-                            <TouchableOpacity 
-                                style={[styles.biometricButton, isMobile && { padding: 12 }]} 
-                                onPress={handleBiometricLogin}
-                                disabled={loading}
-                            >
-                                <Text style={[styles.biometricIcon, isMobile && { fontSize: 20 }]}>🧬</Text>
-                                <Text style={[styles.biometricText, isMobile && { fontSize: 14 }]}>{t.loginWithBiometrics}</Text>
-                            </TouchableOpacity>
 
-                            <View style={[styles.dividerRow, isMobile && { marginVertical: 10 }]}>
-                                <View style={styles.divider} />
-                                <Text style={styles.dividerText}>OR</Text>
-                                <View style={styles.divider} />
-                            </View>
 
                             <Text style={styles.inputLabel}>{t.username}</Text>
                             <TextInput

@@ -26,9 +26,7 @@ export default function RegisterScreen() {
     const { language, t } = useLanguage();
 
     const [name, setName] = useState('');
-    const [ppsn, setPpsn] = useState('');
     const [passport, setPassport] = useState('');
-    const [biometricEnabled, setBiometricEnabled] = useState(false);
     const [childMode, setChildMode] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -36,42 +34,21 @@ export default function RegisterScreen() {
         // Background animation handled by JarvisWrapper
     }, []);
 
-    const handleBiometricAuth = async () => {
-        try {
-            const hasHardware = await LocalAuthentication.hasHardwareAsync();
-            if (!hasHardware) return null;
 
-            const isEnrolled = await LocalAuthentication.isEnrolledAsync();
-            if (!isEnrolled) return null;
-
-            const result = await LocalAuthentication.authenticateAsync({
-                promptMessage: t.loginWithBiometrics,
-            });
-
-            return result.success ? 'bio_' + Date.now() : null;
-        } catch (error) {
-            return null;
-        }
-    };
 
     const handleRegister = async () => {
-        if (!name || (!ppsn && !passport)) {
-            Alert.alert('Details Required', 'Please provide your name and at least one form of ID (PPSN or Passport).');
+        if (!name || !passport) {
+            Alert.alert('Details Required', 'Please provide your name and Passport Number.');
             return;
         }
 
         setLoading(true);
-        let biometricHash = null;
-        if (biometricEnabled) {
-            biometricHash = await handleBiometricAuth();
-        }
 
         try {
             const response = await axios.post(`${API_URL}/register`, {
                 name,
-                ppsn: ppsn || null,
                 passport: passport || null,
-                biometric: biometricHash,
+                biometric: null,
                 is_child: childMode,
                 parent_id: null,
             });
@@ -106,39 +83,14 @@ export default function RegisterScreen() {
                             onChangeText={setName}
                         />
 
-                        <Text style={styles.inputLabel}>{t.identification}</Text>
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Primary ID Number"
-                            placeholderTextColor="rgba(255,255,255,0.4)"
-                            value={ppsn}
-                            onChangeText={setPpsn}
-                            keyboardType="numeric"
-                        />
-
-                        <Text style={styles.orText}>— AND / OR —</Text>
-
                         <Text style={styles.inputLabel}>Passport Number</Text>
                         <TextInput
                             style={styles.input}
-                            placeholder="Secondary ID Number"
+                            placeholder="Primary ID (e.g. Passport)"
                             placeholderTextColor="rgba(255,255,255,0.4)"
                             value={passport}
                             onChangeText={setPassport}
                         />
-
-                        <View style={styles.switchRow}>
-                            <View>
-                                <Text style={styles.switchTitle}>Enable Biometrics</Text>
-                                <Text style={styles.switchSub}>Use FaceID or Fingerprint for rapid SOS</Text>
-                            </View>
-                            <Switch
-                                value={biometricEnabled}
-                                onValueChange={setBiometricEnabled}
-                                trackColor={{ false: '#374151', true: theme.colors.primary }}
-                                thumbColor={biometricEnabled ? 'white' : '#9CA3AF'}
-                            />
-                        </View>
 
                         <View style={styles.switchRow}>
                             <View>
