@@ -9,6 +9,7 @@ import {
     Image,
     FlatList,
     ScrollView,
+    useWindowDimensions,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { BlurView } from 'expo-blur';
