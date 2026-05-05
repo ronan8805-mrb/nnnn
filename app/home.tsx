@@ -12,6 +12,7 @@ import {
     Dimensions,
     Platform,
     PanResponder,
+    useWindowDimensions,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as Location from 'expo-location';
@@ -32,6 +33,10 @@ const isWeb = Platform.OS === 'web';
 
 export default function HomeScreen() {
     const router = useRouter();
+    const { width } = useWindowDimensions();
+    const isSmallDevice = width < 600;
+    const gridItemWidth = isSmallDevice ? (width - theme.spacing.lg * 2 - theme.spacing.md) / 2 : (width - theme.spacing.lg * 2 - theme.spacing.md * 2) / 3;
+    
     const { language, setLanguage, t } = useLanguage();
     const { activeSOS, sosData } = useActiveSOS();
     const pulseAnim = useRef(new Animated.Value(0)).current;
@@ -360,27 +365,27 @@ export default function HomeScreen() {
 
                     {/* Features Grid */}
                     <View style={styles.grid}>
-                        <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/crime-map')}>
+                        <TouchableOpacity style={[styles.gridItem, { width: gridItemWidth }]} onPress={() => router.push('/crime-map')}>
                             <Image source={require('../assets/harp_logo.png')} style={styles.gridLogoWatermark} resizeMode="contain" />
                             <Text style={styles.gridTitle}>{t.crimeMap}</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/safe-walk')}>
+                        <TouchableOpacity style={[styles.gridItem, { width: gridItemWidth }]} onPress={() => router.push('/safe-walk')}>
                             <Image source={require('../assets/harp_logo.png')} style={styles.gridLogoWatermark} resizeMode="contain" />
                             <Text style={styles.gridTitle}>{t.safeWalk}</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/report-crime')}>
+                        <TouchableOpacity style={[styles.gridItem, { width: gridItemWidth }]} onPress={() => router.push('/report-crime')}>
                             <Image source={require('../assets/harp_logo.png')} style={styles.gridLogoWatermark} resizeMode="contain" />
                             <Text style={styles.gridTitle}>{t.report}</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/guardians')}>
+                        <TouchableOpacity style={[styles.gridItem, { width: gridItemWidth }]} onPress={() => router.push('/guardians')}>
                             <Image source={require('../assets/harp_logo.png')} style={styles.gridLogoWatermark} resizeMode="contain" />
                             <Text style={styles.gridTitle}>{t.guardians}</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/community-feed')}>
+                        <TouchableOpacity style={[styles.gridItem, { width: gridItemWidth }]} onPress={() => router.push('/community-feed')}>
                             <Image source={require('../assets/harp_logo.png')} style={styles.gridLogoWatermark} resizeMode="contain" />
                             <Text style={styles.gridTitle}>{t.feed}</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/medical-profile')}>
+                        <TouchableOpacity style={[styles.gridItem, { width: gridItemWidth }]} onPress={() => router.push('/medical-profile')}>
                             <Image source={require('../assets/harp_logo.png')} style={styles.gridLogoWatermark} resizeMode="contain" />
                             <Text style={styles.gridTitle}>{t.medicalProfile}</Text>
                         </TouchableOpacity>
@@ -590,10 +595,9 @@ const styles = StyleSheet.create({
         marginBottom: theme.spacing.xl,
     },
     gridItem: {
-        width: (width - theme.spacing.lg * 2 - theme.spacing.md * 2) / 3,
-        aspectRatio: 0.9, // Slightly taller for serious look
+        aspectRatio: 0.9, 
         backgroundColor: 'rgba(2, 6, 23, 0.4)',
-        borderRadius: 0, // Hard tactical corners
+        borderRadius: 0, 
         padding: theme.spacing.md,
         justifyContent: 'center',
         alignItems: 'center',

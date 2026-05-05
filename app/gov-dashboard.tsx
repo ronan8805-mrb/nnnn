@@ -8,6 +8,7 @@ import {
     Dimensions,
     Platform,
     Modal,
+    useWindowDimensions,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { theme } from '../styles/theme';
@@ -18,6 +19,9 @@ const { width } = Dimensions.get('window');
 
 export default function GovDashboardScreen() {
     const router = useRouter();
+    const { width: screenWidth } = useWindowDimensions();
+    const isMobile = screenWidth < 768;
+    const statCardWidth = isMobile ? (screenWidth - 52) / 2 : (screenWidth - 100) / 4;
 
     const stats = [
         { label: 'National Safety Index', value: '88.4', trend: '+2.1%', color: '#22c55e' },
@@ -75,7 +79,7 @@ export default function GovDashboardScreen() {
                 {/* National Overview Cards */}
                 <View style={styles.statsGrid}>
                     {stats.map((stat, i) => (
-                        <View key={i} style={styles.statCard}>
+                        <View key={i} style={[styles.statCard, { width: statCardWidth }]}>
                             <Text style={styles.statLabel}>{stat.label}</Text>
                             <Text style={[styles.statValue, { color: stat.color }]}>{stat.value}</Text>
                             <Text style={styles.statTrend}>{stat.trend}</Text>
@@ -240,8 +244,8 @@ const styles = StyleSheet.create({
     profileBtn: { width: 40, height: 40, borderRadius: 20, backgroundColor: '#1e293b', justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#fbbf24' },
     profileIcon: { fontSize: 20 },
     content: { padding: 20 },
-    statsGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 24 },
-    statCard: { width: (width - 52) / 2, backgroundColor: 'rgba(251, 191, 36, 0.05)', padding: 16, borderRadius: 8, borderWidth: 1, borderColor: 'rgba(251, 191, 36, 0.3)' },
+    statsGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: 24, justifyContent: 'center' },
+    statCard: { backgroundColor: 'rgba(251, 191, 36, 0.05)', padding: 16, borderRadius: 8, borderWidth: 1, borderColor: 'rgba(251, 191, 36, 0.3)' },
     statLabel: { color: '#fbbf24', fontSize: 10, fontWeight: 'bold', textTransform: 'uppercase', marginBottom: 8, fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace' },
     statValue: { fontSize: 24, fontWeight: '900', marginBottom: 4, fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace' },
     statTrend: { color: '#94a3b8', fontSize: 10, fontWeight: '600', fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace' },
