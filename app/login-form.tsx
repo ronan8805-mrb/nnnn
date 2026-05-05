@@ -8,6 +8,8 @@ import {
     Alert,
     Animated,
     Platform,
+    ScrollView,
+    useWindowDimensions,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as LocalAuthentication from 'expo-local-authentication';
@@ -53,76 +55,90 @@ export default function LoginFormScreen() {
         router.replace('/home');
     };
 
+    const { width } = useWindowDimensions();
+    const isMobile = width < 480;
+
     return (
-        <JarvisWrapper showRings={true}>
-            <View style={styles.overlay}>
-                <BlurView intensity={Platform.OS === 'web' ? 20 : 80} tint="dark" style={styles.glassCard}>
-                    <Text style={styles.title}>{t.login}</Text>
-                    <Text style={styles.subtitle}>{t.loginSubtitle}</Text>
+        <JarvisWrapper showRings={true} showTelemetry={false}>
+            <ScrollView 
+                style={styles.container}
+                contentContainerStyle={styles.scrollContent}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={styles.overlay}>
+                    <BlurView intensity={Platform.OS === 'web' ? 20 : 80} tint="dark" style={[styles.glassCard, isMobile && { padding: 20 }]}>
+                        <Text style={[styles.title, isMobile && { fontSize: 22 }]}>{t.login}</Text>
+                        <Text style={[styles.subtitle, isMobile && { marginBottom: 15 }]}>{t.loginSubtitle}</Text>
 
-                    <View style={styles.form}>
-                        <TouchableOpacity 
-                            style={styles.biometricButton} 
-                            onPress={handleBiometricLogin}
-                            disabled={loading}
-                        >
-                            <Text style={styles.biometricIcon}>🧬</Text>
-                            <Text style={styles.biometricText}>{t.loginWithBiometrics}</Text>
-                        </TouchableOpacity>
+                        <View style={styles.form}>
+                            <TouchableOpacity 
+                                style={[styles.biometricButton, isMobile && { padding: 12 }]} 
+                                onPress={handleBiometricLogin}
+                                disabled={loading}
+                            >
+                                <Text style={[styles.biometricIcon, isMobile && { fontSize: 20 }]}>🧬</Text>
+                                <Text style={[styles.biometricText, isMobile && { fontSize: 14 }]}>{t.loginWithBiometrics}</Text>
+                            </TouchableOpacity>
 
-                        <View style={styles.dividerRow}>
-                            <View style={styles.divider} />
-                            <Text style={styles.dividerText}>OR</Text>
-                            <View style={styles.divider} />
+                            <View style={[styles.dividerRow, isMobile && { marginVertical: 10 }]}>
+                                <View style={styles.divider} />
+                                <Text style={styles.dividerText}>OR</Text>
+                                <View style={styles.divider} />
+                            </View>
+
+                            <Text style={styles.inputLabel}>{t.username}</Text>
+                            <TextInput
+                                style={[styles.input, isMobile && { padding: 12, fontSize: 14 }]}
+                                placeholder={t.username}
+                                placeholderTextColor="rgba(255,255,255,0.4)"
+                                value={name}
+                                onChangeText={setName}
+                                autoCapitalize="none"
+                            />
+
+                            <Text style={[styles.inputLabel, { marginTop: 4 }]}>{t.password}</Text>
+                            <TextInput
+                                style={[styles.input, isMobile && { padding: 12, fontSize: 14 }]}
+                                placeholder={t.password}
+                                placeholderTextColor="rgba(255,255,255,0.4)"
+                                value={password}
+                                onChangeText={setPassword}
+                                secureTextEntry
+                            />
+
+                            <TouchableOpacity
+                                style={[styles.loginButton, isMobile && { padding: 12 }]}
+                                onPress={handleNameLogin}
+                            >
+                                <Text style={[styles.loginButtonText, isMobile && { fontSize: 14 }]}>{t.login}</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => router.back()} style={styles.backLink}>
+                                <Text style={styles.backText}>← Cancel and return</Text>
+                            </TouchableOpacity>
                         </View>
-
-                        <Text style={styles.inputLabel}>{t.username}</Text>
-                        <TextInput
-                            style={styles.input}
-                            placeholder={t.username}
-                            placeholderTextColor="rgba(255,255,255,0.4)"
-                            value={name}
-                            onChangeText={setName}
-                            autoCapitalize="none"
-                        />
-
-                        <Text style={[styles.inputLabel, { marginTop: 8 }]}>{t.password}</Text>
-                        <TextInput
-                            style={styles.input}
-                            placeholder={t.password}
-                            placeholderTextColor="rgba(255,255,255,0.4)"
-                            value={password}
-                            onChangeText={setPassword}
-                            secureTextEntry
-                        />
-
-                        <TouchableOpacity
-                            style={styles.loginButton}
-                            onPress={handleNameLogin}
-                        >
-                            <Text style={styles.loginButtonText}>{t.login}</Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity onPress={() => router.back()} style={styles.backLink}>
-                            <Text style={styles.backText}>← Cancel and return</Text>
-                        </TouchableOpacity>
-                    </View>
-                </BlurView>
-            </View>
+                    </BlurView>
+                </View>
+            </ScrollView>
         </JarvisWrapper>
     );
 }
 
 const styles = StyleSheet.create({
-    overlay: {
+    container: {
         flex: 1,
+    },
+    scrollContent: {
+        flexGrow: 1,
         justifyContent: 'center',
-        alignItems: 'center', // Center card natively on large displays
-        padding: theme.spacing.xl,
+    },
+    overlay: {
+        padding: theme.spacing.lg,
+        alignItems: 'center',
     },
     glassCard: {
         padding: theme.spacing.xxl,
-        borderRadius: 16,
+        borderRadius: 12,
         borderWidth: 1,
         borderColor: 'rgba(0, 243, 255, 0.3)',
         backgroundColor: 'rgba(2, 6, 23, 0.6)',

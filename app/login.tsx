@@ -21,6 +21,8 @@ import LanguageSelector from '../components/LanguageSelector';
 export default function AuthSelectionScreen() {
     const router = useRouter();
     const { language, setLanguage, t } = useLanguage();
+    const { width } = useWindowDimensions();
+    const isMobile = width < 480;
     const [showLangMenu, setShowLangMenu] = React.useState(false);
     
     // Animation for the logo glow
@@ -56,51 +58,51 @@ export default function AuthSelectionScreen() {
                     <View style={styles.mainContent}>
                         
                         {/* The Shield/Harp Logo Container */}
-                        <View style={styles.logoWrapper}>
-                            <Animated.View style={[styles.logoGlow, { 
+                        <View style={[styles.logoWrapper, isMobile && { marginBottom: 15 }]}>
+                            <Animated.View style={[styles.logoGlow, isMobile ? { width: 100, height: 100, borderRadius: 50 } : null, { 
                                 opacity: pulseAnim.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] }) 
                             }]} />
                             <Image 
                                 source={require('../assets/harp_logo.png')} 
-                                style={styles.harpLogo}
+                                style={[styles.harpLogo, isMobile && { width: 140, height: 140 }]}
                                 resizeMode="contain"
                             />
                         </View>
 
-                        <Text style={styles.welcomeTitle}>{t.platformTitle}</Text>
-                        <Text style={styles.welcomeSubtitle}>{t.welcomeSubtitle}</Text>
+                        <Text style={[styles.welcomeTitle, isMobile && { fontSize: 18 }]}>{t.platformTitle}</Text>
+                        <Text style={[styles.welcomeSubtitle, isMobile && { marginBottom: 20 }]}>{t.welcomeSubtitle}</Text>
 
-                        <BlurView intensity={Platform.OS === 'web' ? 40 : 80} tint="dark" style={styles.selectionCard}>
+                        <BlurView intensity={Platform.OS === 'web' ? 40 : 80} tint="dark" style={[styles.selectionCard, isMobile && { padding: 20 }]}>
                             
-                            <View style={styles.buttonGroup}>
+                            <View style={[styles.buttonGroup, isMobile && { gap: 10, marginBottom: 15 }]}>
                                 <TouchableOpacity 
-                                    style={[styles.authButton, styles.registerBtn]}
+                                    style={[styles.authButton, styles.registerBtn, isMobile && { padding: 12 }]}
                                     onPress={() => router.push('/register')}
                                     activeOpacity={0.8}
                                 >
-                                    <View style={styles.btnIconContainer}>
-                                        <Ionicons name="finger-print" size={24} color="#00f3ff" />
+                                    <View style={[styles.btnIconContainer, isMobile && { width: 32, height: 32, marginRight: 10 }]}>
+                                        <Ionicons name="finger-print" size={isMobile ? 18 : 24} color="#00f3ff" />
                                     </View>
                                     <View style={styles.btnTextContainer}>
-                                        <Text style={styles.btnTitle}>{t.register}</Text>
+                                        <Text style={[styles.btnTitle, isMobile && { fontSize: 13 }]}>{t.register}</Text>
                                         <Text style={styles.btnSub}>Create a new account</Text>
                                     </View>
-                                    <Ionicons name="chevron-forward" size={20} color="#00f3ff" />
+                                    <Ionicons name="chevron-forward" size={16} color="#00f3ff" />
                                 </TouchableOpacity>
 
                                 <TouchableOpacity 
-                                    style={[styles.authButton, styles.loginBtn]}
+                                    style={[styles.authButton, styles.loginBtn, isMobile && { padding: 12 }]}
                                     onPress={() => router.push('/login-form')}
                                     activeOpacity={0.8}
                                 >
-                                    <View style={styles.btnIconContainerNavy}>
-                                        <Ionicons name="scan" size={24} color="#fbbf24" />
+                                    <View style={[styles.btnIconContainerNavy, isMobile && { width: 32, height: 32, marginRight: 10 }]}>
+                                        <Ionicons name="scan" size={isMobile ? 18 : 24} color="#fbbf24" />
                                     </View>
                                     <View style={styles.btnTextContainer}>
-                                        <Text style={styles.btnTitleLogin}>{t.login}</Text>
+                                        <Text style={[styles.btnTitleLogin, isMobile && { fontSize: 13 }]}>{t.login}</Text>
                                         <Text style={styles.btnSub}>Access your account</Text>
                                     </View>
-                                    <Ionicons name="chevron-forward" size={20} color="#fbbf24" />
+                                    <Ionicons name="chevron-forward" size={16} color="#fbbf24" />
                                 </TouchableOpacity>
                             </View>
 
